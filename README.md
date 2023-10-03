@@ -1,3 +1,3 @@
 # curriculum-vitae-application
 
-React app that allows users create their own resume in a template and download it as a pdf
+A React app which allows users to create their own resume using a ready template and download it in a PDF format.
