@@ -2,6 +2,7 @@ import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 import Layout from "./Layout";
+import CvTemplate from "./Template";
 
 function Main() {
     const [customize, setCustomize] = useState(false)
@@ -27,6 +28,8 @@ function Main() {
             {customize !== true ?
              <Content personalInfo={personalInfo} handleChange={handleChange}/> : 
              <Layout/>}
+            <CvTemplate personalInfo={personalInfo}/>
+
         </>
     )
 }
