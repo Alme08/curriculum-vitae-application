@@ -1,8 +1,16 @@
-function Education({handleExpand, isExpand}) {
+function Education({educations, handleExpand, isExpand, handleAddEducation}) {
     return(
         <>
             <button id="education" onClick={handleExpand}>Education</button>
-            {isExpand && <p>Education</p>}
+            {isExpand && 
+            <>
+                {educations.map((education) => {
+                    return(
+                        <button key={education.id}>{education.university}</button>
+                    )
+                })}
+                <button onClick={handleAddEducation}>+ Education</button>
+            </>}
         </>
     )
 }
