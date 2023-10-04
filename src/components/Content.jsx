@@ -5,7 +5,7 @@ import Experience from "./CvForm/Experience";
 
 function Content(props){
     const [expand, setExpand] = useState('education')
-    const {personalInfo, handleChange} = props;
+    const {personalInfo, educations, handleChange, handleAddEducation} = props;
 
     const handleExpand = (e) =>{
         e.target.id === expand ? setExpand(null) :
@@ -14,7 +14,7 @@ function Content(props){
     return(
         <>
             <PersonalInfo personalInfo={personalInfo} handleChange={handleChange}/>
-            <Education handleExpand={handleExpand} isExpand={expand === 'education'}/>
+            <Education educations={educations} handleExpand={handleExpand} isExpand={expand === 'education'} handleAddEducation={handleAddEducation}/>
             <Experience handleExpand={handleExpand} isExpand={expand === 'experience'}/>
         </>
     )
