@@ -1,4 +1,5 @@
 import { useState } from "react";
+import uniqid from 'uniqid';
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 import Layout from "./Layout";
@@ -13,6 +14,7 @@ function Main() {
         address: '',
         phone: '',
       });
+      const [educations, setEducations] = useState([]);
 
     const handleSidebar = (e) =>{
         e.target.id === 'content' ? setCustomize(false) : setCustomize(true) 
@@ -22,11 +24,25 @@ function Main() {
         e.target.parentNode.className === 'personalInfo' ? setPersonalInfo({...personalInfo, [e.target.name]: e.target.value}) :
         console.log('hola') 
     }
+
+    const handleAddEducation = () =>{
+        setEducations([
+            ...educations,
+            {
+              university: '',
+              city: '',
+              degree: '',
+              from: '',
+              to: '',
+              id: uniqid(),
+            },
+        ]);
+    };
     return(
         <>
             <Sidebar handleSidebar={handleSidebar}/>
             {customize !== true ?
-             <Content personalInfo={personalInfo} handleChange={handleChange}/> : 
+             <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation}/> : 
              <Layout/>}
             <CvTemplate personalInfo={personalInfo}/>
 
