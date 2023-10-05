@@ -34,19 +34,26 @@ function Main() {
               degree: '',
               from: '',
               to: '',
+              hidden: false,
+              edit: true,
               id: uniqid(),
             },
         ]);
     };
     return(
-        <>
-            <Sidebar handleSidebar={handleSidebar}/>
-            {customize !== true ?
-             <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation}/> : 
-             <Layout/>}
-            <CvTemplate personalInfo={personalInfo}/>
-
-        </>
+        <main className="container">
+            <section className="edit">
+                <Sidebar handleSidebar={handleSidebar}/>
+                <div className="cv-form">
+                    {customize !== true ?
+                    <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation}/> : 
+                    <Layout/>}
+                </div>
+            </section>
+            <section className="CvTemplate">
+                <CvTemplate personalInfo={personalInfo}/>
+            </section>
+        </main>
     )
 }
 
