@@ -1,8 +1,8 @@
-function Sidebar({handleSidebar}) {
+function Sidebar({handleSidebar, customize}) {
     return(
         <div className="sidebar">
-            <button id="content" onClick={handleSidebar}><span>A</span>Content</button>
-            <button id="layout" onClick={handleSidebar}><span>A</span>Layout</button>
+            <button className={!customize ? "selected" : ''} id="content" onClick={handleSidebar}><i className="fa-solid fa-pen"></i>Content</button>
+            <button className={customize ? "selected" : ''} id="layout" onClick={handleSidebar}><i className="fa-regular fa-file"></i>Layout</button>
         </div>
     )
 }
