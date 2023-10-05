@@ -43,7 +43,7 @@ function Main() {
     return(
         <main className="container">
             <section className="edit">
-                <Sidebar handleSidebar={handleSidebar}/>
+                <Sidebar handleSidebar={handleSidebar} customize={customize}/>
                 <div className="cv-form">
                     {customize !== true ?
                     <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation}/> : 
