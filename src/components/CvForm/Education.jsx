@@ -5,9 +5,18 @@ function Education({educations, handleExpand, isExpand, handleAddEducation}) {
             {isExpand && 
             <>
                 {educations.map((education) => {
-                    return(
-                        <button key={education.id}>{education.university}</button>
-                    )
+                    return education.edit === false ? <button key={education.id}>{education.university}</button> :
+                    <div>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <div>
+                            <button>Delete</button>
+                            <button>Cancel</button>
+                            <button>Save</button>
+                        </div>
+                    </div>
+                    
                 })}
                 <button onClick={handleAddEducation}>+ Education</button>
             </>}
