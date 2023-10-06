@@ -21,7 +21,7 @@ function Main() {
     }
 
     const handleChange = (e) =>{
-        e.target.parentNode.className === 'personalInfo' ? setPersonalInfo({...personalInfo, [e.target.name]: e.target.value}) :
+        e.target.dataset.field === 'personalInfo' ? setPersonalInfo({...personalInfo, [e.target.name]: e.target.value}) :
         console.log('hola') 
     }
 
