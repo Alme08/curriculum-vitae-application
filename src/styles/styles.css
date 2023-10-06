@@ -48,12 +48,14 @@
     color: #ffffff;
 }
 
+/** MAIN  **/
 main{
     display: flex;
     justify-content: space-between;
     padding: 20px;
     gap: 15px;
 }
+
 main > section{
     width: 50%;
 }
@@ -62,6 +64,7 @@ main > .edit{
     gap: 15px;
 }
 
+/** SIDEBAR **/
 main > .edit > .sidebar{
     height: min-content;
     background-color: #ffffff;
@@ -87,4 +90,55 @@ main > .edit > .sidebar > button{
 }
 main > .edit > .sidebar > .selected{
     background-color: #f2f2f2;
+}
+
+/** FORM **/
+.cv-form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+.cv-form > .personal-info{
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: auto;
+}
+.cv-form > .personal-info > form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cv-form > .personal-info > form > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.cv-form > .personal-info > form > div > label{
+    font-size: 13px;
+    font-weight: bold;
+    /* display: flex;
+    gap: 10px; */
+}
+.cv-form > .personal-info > form > div > label > span{
+    padding: 8px;
+    font-size: 8px;
+    color: #626262;
+}
+.cv-form > .personal-info > form > div > input{
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 200ms ease-in-out;
+}
+.cv-form > .personal-info > form > div > input:focus{
+    border-color: blue;
+    box-shadow: 0px 3px 15px rgba(59, 131, 246, 0.2);
 }
