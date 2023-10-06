@@ -1,9 +1,9 @@
-function Input({type, name, placeholder, onChange, id, value, label, span}){
+function Input({type, name, placeholder, onChange, id, value, label, span, dataset}){
     return(
-        <>
-        <label htmlFor={name}>{label}</label><span>{span}</span>
-        <input type={type} name={name} id={id} placeholder={placeholder} onChange={onChange} value={value}/>
-        </>
+        <div>
+            <label htmlFor={name}>{label}<span>{span}</span></label>
+            <input type={type} name={name} id={id} placeholder={placeholder} onChange={onChange} value={value} data-field={dataset}/>
+        </div>
     )
 }
 
