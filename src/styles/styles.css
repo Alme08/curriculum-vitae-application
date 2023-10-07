@@ -47,6 +47,9 @@
     text-decoration: none;
     color: #ffffff;
 }
+.navbar a:active{
+    scale: 0.95
+}
 
 /** MAIN  **/
 main{
@@ -87,6 +90,9 @@ main > .edit > .sidebar > button{
     border-radius: 10px;
     cursor: pointer;
     border-style: none;
+}
+main > .edit > .sidebar > button:active{
+    scale: 0.95;
 }
 main > .edit > .sidebar > .selected{
     background-color: #f2f2f2;
