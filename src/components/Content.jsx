@@ -4,7 +4,7 @@ import Education from "./CvForm/Education";
 import Experience from "./CvForm/Experience";
 
 function Content(props){
-    const [expand, setExpand] = useState('education')
+    const [expand, setExpand] = useState(null)
     const {personalInfo, educations, handleChange, handleAddEducation} = props;
 
     const handleExpand = (e) =>{
