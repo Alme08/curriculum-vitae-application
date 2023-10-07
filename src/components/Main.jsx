@@ -7,6 +7,7 @@ import CvTemplate from "./Template";
 
 function Main() {
     const [customize, setCustomize] = useState(false)
+    const [expand, setExpand] = useState(null)
     const [personalInfo, setPersonalInfo] = useState({
         fullName: '',
         title: '',
@@ -18,6 +19,10 @@ function Main() {
 
     const handleSidebar = (e) =>{
         e.target.id === 'content' ? setCustomize(false) : setCustomize(true) 
+    }
+    const handleExpand = (e) =>{
+        e.target.id === expand ? setExpand(null) :
+        e.target.id === 'education' ? setExpand('education') : setExpand('experience')
     }
 
     const handleChange = (e) =>{
@@ -46,7 +51,7 @@ function Main() {
                 <Sidebar handleSidebar={handleSidebar} customize={customize}/>
                 <div className="cv-form">
                     {customize !== true ?
-                    <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation}/> : 
+                    <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation} handleExpand={handleExpand} expand={expand}/> : 
                     <Layout/>}
                 </div>
             </section>
