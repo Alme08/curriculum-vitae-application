@@ -8,7 +8,8 @@
 
 #root{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: max-content;
     background-color: #f2f2f2;
 }
 
@@ -60,9 +61,10 @@ main{
 }
 
 main > section{
-    width: 50%;
+    width: 60%;
 }
 main > .edit{
+    width: 40%;
     display: flex;
     gap: 15px;
 }
@@ -147,4 +149,48 @@ main > .edit > .sidebar > .selected{
 .cv-form > .personal-info > form > div > input:focus{
     border-color: blue;
     box-shadow: 0px 3px 15px rgba(59, 131, 246, 0.2);
+}
+
+/** EDUCATION **/
+
+.cv-form > div > .educationSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border-style: none;
+    cursor: pointer;
+}
+.cv-form > div > .educationSection.open{
+    border-radius: 10px 10px 0px 0px
+}
+.cv-form > div > .educationSection > i{
+    transition: transform 250ms ease-in;
+}
+.cv-form > div > .educationSection > i.open{
+    transform: rotate(0.5turn);
+}
+.cv-form > div > .sectionOpen{
+    background-color: #ffffff;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+}
+.cv-form > div > .sectionOpen > .addEducation{
+    width: auto;
+    padding: 10px 8px;
+    background-color: #132043;
+    /* border: 4px solid #f2f2f2; */
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
 }
