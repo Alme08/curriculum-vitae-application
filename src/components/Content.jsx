@@ -11,7 +11,7 @@ function Content(props){
     return(
         <>
             <PersonalInfo personalInfo={personalInfo} handleChange={handleChange}/>
-            <Education educations={educations} handleExpand={handleExpand} isExpand={expand === 'education'} handleAddEducation={handleAddEducation}/>
+            <Education educations={educations} handleExpand={handleExpand} isExpand={expand === 'education'} handleAddEducation={handleAddEducation} handleChange={handleChange}/>
             <Experience handleExpand={handleExpand} isExpand={expand === 'experience'}/>
         </>
     )
