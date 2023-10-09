@@ -15,7 +15,7 @@ function Main() {
         address: '',
         phone: '',
       });
-      const [educations, setEducations] = useState([]);
+    const [educations, setEducations] = useState([]);
 
     const handleSidebar = (e) =>{
         e.target.id === 'content' ? setCustomize(false) : setCustomize(true) 
@@ -27,7 +27,17 @@ function Main() {
 
     const handleChange = (e) =>{
         e.target.dataset.field === 'personalInfo' ? setPersonalInfo({...personalInfo, [e.target.name]: e.target.value}) :
-        console.log('hola') 
+        e.target.dataset.field === 'education' ? setEducations(educations.map((education) => {
+            if (education.id === e.target.parentNode.parentNode.dataset.id) {
+              return {
+                ...education,
+                [e.target.name]: e.target.value,
+              };
+            }
+            return education;
+          })) : 
+        console.log('hey')
+
     }
 
     const handleAddEducation = () =>{
