@@ -5,13 +5,30 @@ import Experience from "./CvForm/Experience";
 
 function Content(props){
     
-    const {personalInfo, educations, handleChange, handleAddEducation, handleDeleteEducation, handleCancelEducation, handleSaveEducation, handleExpand, expand} = props;
-
-    
+    const {personalInfo, 
+        educations, 
+        handleChange, 
+        handleAddEducation, 
+        handleDeleteEducation, 
+        handleCancelEducation, 
+        handleSaveEducation, 
+        handleExpand,
+        handleEditEducation, 
+        expand} = props;
     return(
         <>
             <PersonalInfo personalInfo={personalInfo} handleChange={handleChange}/>
-            <Education educations={educations} handleExpand={handleExpand} isExpand={expand === 'education'} handleAddEducation={handleAddEducation} handleCancelEducation={handleCancelEducation} handleChange={handleChange} handleDeleteEducation={handleDeleteEducation} handleSaveEducation={handleSaveEducation}/>
+            <Education 
+                educations={educations} 
+                handleExpand={handleExpand} 
+                isExpand={expand === 'education'} 
+                handleAddEducation={handleAddEducation} 
+                handleCancelEducation={handleCancelEducation} 
+                handleChange={handleChange} 
+                handleDeleteEducation={handleDeleteEducation} 
+                handleSaveEducation={handleSaveEducation}
+                handleEditEducation={handleEditEducation}/>
+                
             <Experience handleExpand={handleExpand} isExpand={expand === 'experience'}/>
         </>
     )
