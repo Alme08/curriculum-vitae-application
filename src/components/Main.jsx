@@ -16,6 +16,9 @@ function Main() {
         phone: '',
       });
     const [educations, setEducations] = useState([]);
+    // const [experiences, setExperiences] = useState([]);
+    const [prevState, setPrevState] = useState(null);
+    
 
     const handleSidebar = (e) =>{
         e.target.id === 'content' ? setCustomize(false) : setCustomize(true) 
@@ -39,8 +42,8 @@ function Main() {
         console.log('hey')
 
     }
-
     const handleAddEducation = () =>{
+        setPrevState(educations)
         setEducations([
             ...educations,
             {
@@ -55,13 +58,37 @@ function Main() {
             },
         ]);
     };
+
+    const handleDeleteEducation = (e) => {
+        const newEducations = educations.filter(education => education.id !== e.target.dataset.id)
+        setEducations(newEducations)
+    }
+    const handleCancelEducation = () => {
+        setEducations(prevState)
+    }
+    const handleSaveEducation = () => {
+        educations.map((education) =>{
+            if (education.edit === true) {
+                education.edit = false
+            }
+        })
+    }
     return(
         <main className="container">
             <section className="edit">
                 <Sidebar handleSidebar={handleSidebar} customize={customize}/>
                 <div className="cv-form">
                     {customize !== true ?
-                    <Content personalInfo={personalInfo} educations={educations} handleChange={handleChange} handleAddEducation={handleAddEducation} handleExpand={handleExpand} expand={expand}/> : 
+                    <Content 
+                        personalInfo={personalInfo} 
+                        educations={educations} 
+                        handleChange={handleChange} 
+                        handleAddEducation={handleAddEducation} 
+                        handleDeleteEducation={handleDeleteEducation} 
+                        handleCancelEducation={handleCancelEducation}
+                        handleSaveEducation={handleSaveEducation}
+                        handleExpand={handleExpand} 
+                        expand={expand}/> : 
                     <Layout/>}
                 </div>
             </section>
