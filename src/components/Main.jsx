@@ -62,16 +62,34 @@ function Main() {
     const handleDeleteEducation = (e) => {
         const newEducations = educations.filter(education => education.id !== e.target.dataset.id)
         setEducations(newEducations)
+        setPrevState(null)
     }
     const handleCancelEducation = () => {
-        setEducations(prevState)
-    }
-    const handleSaveEducation = () => {
-        educations.map((education) =>{
+        setEducations(prevState.map((education) =>{
             if (education.edit === true) {
                 education.edit = false
             }
-        })
+            return education
+        }))
+        setPrevState(null)
+    }
+    const handleSaveEducation = () => {
+        setEducations(educations.map((education) =>{
+            if (education.edit === true) {
+                education.edit = false
+            }
+            return education
+        }))
+        setPrevState(null)
+    }
+    const handleEditEducation = (e) => {
+        setPrevState(educations)
+        setEducations(educations.map((education) =>{
+            if (education.id === e.target.dataset.id) {
+                education.edit = true
+            }
+            return education
+        }))
     }
     return(
         <main className="container">
@@ -87,6 +105,7 @@ function Main() {
                         handleDeleteEducation={handleDeleteEducation} 
                         handleCancelEducation={handleCancelEducation}
                         handleSaveEducation={handleSaveEducation}
+                        handleEditEducation={handleEditEducation}
                         handleExpand={handleExpand} 
                         expand={expand}/> : 
                     <Layout/>}
