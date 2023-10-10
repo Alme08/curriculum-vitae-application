@@ -1,6 +1,15 @@
 import Input from "../tools/Input";
 
-function Education({educations, handleExpand, isExpand, handleAddEducation, handleCancelEducation, handleSaveEducation, handleChange, handleDeleteEducation}) {
+function Education({educations, 
+                    handleExpand, 
+                    isExpand, 
+                    handleAddEducation, 
+                    handleCancelEducation, 
+                    handleSaveEducation,
+                    handleEditEducation,
+                    handleChange, 
+                    handleDeleteEducation}) {
+
     const edit = educations.find(education => education.edit === true);
     return(
         <div>
@@ -29,7 +38,7 @@ function Education({educations, handleExpand, isExpand, handleAddEducation, hand
                     </div> : 
                     <>
                         {educations.map((education) => {
-                            return <button key={education.id}>{education.university}</button>
+                            return <button onClick={handleEditEducation} data-id={education.id} key={education.id}>{education.university}</button>
                         })}
                         <button className="addEducation" onClick={handleAddEducation}>+ Education</button>
                     </>
