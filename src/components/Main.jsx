@@ -66,7 +66,7 @@ function Main() {
                 </div>
             </section>
             <section className="CvTemplate">
-                <CvTemplate personalInfo={personalInfo}/>
+                <CvTemplate personalInfo={personalInfo} educations={educations}/>
             </section>
         </main>
     )
