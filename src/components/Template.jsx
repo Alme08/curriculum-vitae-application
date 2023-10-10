@@ -1,9 +1,12 @@
 import HeaderTemplate from "./CvTemplate/HeaderTemplate"
+import MainTemplate from "./CvTemplate/MainTemplate"
 
-
-function CvTemplate({personalInfo}) {
+function CvTemplate({personalInfo, educations}) {
     return(
-        <HeaderTemplate personalInfo={personalInfo}/>
+        <>
+            <HeaderTemplate personalInfo={personalInfo}/>
+            <MainTemplate educations={educations}/>
+        </>
     )
 }
 
