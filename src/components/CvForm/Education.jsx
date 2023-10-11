@@ -3,13 +3,13 @@ import Input from "../tools/Input";
 function Education({educations, 
                     handleExpand, 
                     isExpand, 
-                    handleAddEducation, 
-                    handleCancelEducation, 
-                    handleSaveEducation,
-                    handleEditEducation,
+                    handleAdd, 
+                    handleCancel, 
+                    handleSave,
+                    handleEdit,
                     handleChange, 
-                    handleDeleteEducation,
-                    handleHiddenEducation}) {
+                    handleDelete,
+                    handleHidden}) {
 
     const edit = educations.find(education => education.edit === true);
     return(
@@ -32,22 +32,22 @@ function Education({educations,
 
                         <Input type='text' name='city' placeholder='Insert Location' onChange={handleChange} id='city' value={edit.city} label='Location' span='optional' dataset='education'/>
                         <div className="buttons">
-                            <button data-id={edit.id} onClick={handleDeleteEducation}>Delete</button>
+                            <button data-id={edit.id} data-set='education' onClick={handleDelete}>Delete</button>
                             <div>
-                                <button onClick={handleCancelEducation}>Cancel</button>
-                                <button className="save" onClick={handleSaveEducation}>Save</button>
+                                <button data-set='education' onClick={handleCancel}>Cancel</button>
+                                <button data-set='education' className="save" onClick={handleSave}>Save</button>
                             </div>
                         </div>
                     </div> : 
                     <>
                         {educations.map((education) => {
-                            return <button onClick={handleEditEducation} data-id={education.id} key={education.id}>
+                            return <button data-set='education' onClick={handleEdit} data-id={education.id} key={education.id}>
                                 {education.university}
-                                {!education.hidden ? <i onClick={handleHiddenEducation} className="fa-regular fa-eye"></i> : 
-                                <i onClick={handleHiddenEducation} className="fa-regular fa-eye-slash"></i>}
+                                {!education.hidden ? <i onClick={handleHidden} className="fa-regular fa-eye"></i> : 
+                                <i onClick={handleHidden} className="fa-regular fa-eye-slash"></i>}
                                 </button>
                         })}
-                        <button className="addEducation" onClick={handleAddEducation}>+ Education</button>
+                        <button className="addEducation" data-set='education' onClick={handleAdd}>+ Education</button>
                     </>
                 }
             </div>}
