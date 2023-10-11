@@ -8,7 +8,8 @@ function Education({educations,
                     handleSaveEducation,
                     handleEditEducation,
                     handleChange, 
-                    handleDeleteEducation}) {
+                    handleDeleteEducation,
+                    handleHiddenEducation}) {
 
     const edit = educations.find(education => education.edit === true);
     return(
@@ -40,7 +41,9 @@ function Education({educations,
                     </div> : 
                     <>
                         {educations.map((education) => {
-                            return <button onClick={handleEditEducation} data-id={education.id} key={education.id}>{education.university}</button>
+                            return <button onClick={handleEditEducation} data-id={education.id} key={education.id}>
+                                {education.university}<i onClick={handleHiddenEducation}>A</i>
+                                </button>
                         })}
                         <button className="addEducation" onClick={handleAddEducation}>+ Education</button>
                     </>
