@@ -14,6 +14,7 @@ function Content(props){
         handleSaveEducation, 
         handleExpand,
         handleEditEducation, 
+        handleHiddenEducation,
         expand} = props;
     return(
         <>
@@ -27,7 +28,8 @@ function Content(props){
                 handleChange={handleChange} 
                 handleDeleteEducation={handleDeleteEducation} 
                 handleSaveEducation={handleSaveEducation}
-                handleEditEducation={handleEditEducation}/>
+                handleEditEducation={handleEditEducation}
+                handleHiddenEducation={handleHiddenEducation}/>
                 
             <Experience handleExpand={handleExpand} isExpand={expand === 'experience'}/>
         </>
