@@ -91,6 +91,14 @@ function Main() {
             return education
         }))
     }
+    const handleHiddenEducation = (e) => {
+        setEducations(educations.map((education) =>{
+            if (education.id === e.target.parentNode.dataset.id) {
+                education.hidden === true ? education.hidden = false : education.hidden = true
+            }
+            return education
+        }))
+    }
     return(
         <main className="container">
             <section className="edit">
@@ -106,7 +114,8 @@ function Main() {
                         handleCancelEducation={handleCancelEducation}
                         handleSaveEducation={handleSaveEducation}
                         handleEditEducation={handleEditEducation}
-                        handleExpand={handleExpand} 
+                        handleExpand={handleExpand}
+                        handleHiddenEducation={handleHiddenEducation} 
                         expand={expand}/> : 
                     <Layout/>}
                 </div>
