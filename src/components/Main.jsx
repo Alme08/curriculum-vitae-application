@@ -171,7 +171,7 @@ function Main() {
         }
     }
     return(
-        <main className="container">
+        <main className="">
             <section className="edit">
                 <Sidebar handleSidebar={handleSidebar} customize={customize}/>
                 <div className="cv-form">
@@ -192,8 +192,10 @@ function Main() {
                     <Layout/>}
                 </div>
             </section>
-            <section className="CvTemplate">
-                <CvTemplate personalInfo={personalInfo} educations={educations} experiences={experiences}/>
+            <section className="CvTemplate-container">
+                <div className="CvTemplate top">
+                    <CvTemplate personalInfo={personalInfo} educations={educations} experiences={experiences}/>
+                </div>
             </section>
         </main>
     )
