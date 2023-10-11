@@ -7,14 +7,15 @@ function Content(props){
     
     const {personalInfo, 
         educations, 
+        experiences,
         handleChange, 
-        handleAddEducation, 
-        handleDeleteEducation, 
-        handleCancelEducation, 
-        handleSaveEducation, 
+        handleAdd, 
+        handleDelete, 
+        handleCancel, 
+        handleSave, 
         handleExpand,
-        handleEditEducation, 
-        handleHiddenEducation,
+        handleEdit, 
+        handleHidden,
         expand} = props;
     return(
         <>
@@ -23,15 +24,25 @@ function Content(props){
                 educations={educations} 
                 handleExpand={handleExpand} 
                 isExpand={expand === 'education'} 
-                handleAddEducation={handleAddEducation} 
-                handleCancelEducation={handleCancelEducation} 
+                handleAdd={handleAdd} 
+                handleCancel={handleCancel} 
                 handleChange={handleChange} 
-                handleDeleteEducation={handleDeleteEducation} 
-                handleSaveEducation={handleSaveEducation}
-                handleEditEducation={handleEditEducation}
-                handleHiddenEducation={handleHiddenEducation}/>
+                handleDelete={handleDelete} 
+                handleSave={handleSave}
+                handleEdit={handleEdit}
+                handleHidden={handleHidden}/>
                 
-            <Experience handleExpand={handleExpand} isExpand={expand === 'experience'}/>
+            <Experience 
+                experiences={experiences}
+                handleExpand={handleExpand} 
+                isExpand={expand === 'experience'}
+                handleAdd={handleAdd}
+                handleChange={handleChange}
+                handleDelete={handleDelete}
+                handleCancel={handleCancel}
+                handleSave={handleSave}
+                handleEdit={handleEdit}
+                handleHidden={handleHidden}/>
         </>
     )
 }
