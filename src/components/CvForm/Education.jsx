@@ -42,7 +42,9 @@ function Education({educations,
                     <>
                         {educations.map((education) => {
                             return <button onClick={handleEditEducation} data-id={education.id} key={education.id}>
-                                {education.university}<i onClick={handleHiddenEducation}>A</i>
+                                {education.university}
+                                {!education.hidden ? <i onClick={handleHiddenEducation} className="fa-regular fa-eye"></i> : 
+                                <i onClick={handleHiddenEducation} className="fa-regular fa-eye-slash"></i>}
                                 </button>
                         })}
                         <button className="addEducation" onClick={handleAddEducation}>+ Education</button>
