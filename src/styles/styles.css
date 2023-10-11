@@ -3,10 +3,11 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
-#root{
+body{
     width: 100%;
     min-height: 100vh;
     max-height: max-content;
@@ -15,7 +16,7 @@
 
 .container{
     margin: 0 auto;
-    max-width: 73rem;
+    max-width: 90rem;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -55,43 +56,53 @@
 /** MAIN  **/
 main{
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 15px;
+    /* justify-content: space-between; */
+    margin: auto;
+    width: 100%;
+    padding: 32px 24px;
+    gap: 24px;
+    max-width: 1500px;
 }
 
 main > section{
-    width: 55%;
+    /* width: 50%; */
 }
 main > .edit{
-    width: 45%;
+    /* width: 50%; */
     display: flex;
-    gap: 15px;
+    height: fit-content;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 750px;
+    flex-grow: 1;
 }
 
 /** SIDEBAR **/
 main > .edit > .sidebar{
-    height: min-content;
+    padding: 14px 8px;
     background-color: #ffffff;
+    border-radius: 10px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 7px;
-    border-radius: 10px;
+    gap: 3px;
+    flex-grow: 1;
+    /* justify-content: space-between; */
 }
 main > .edit > .sidebar > button{
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 7px;
-    width: 100%;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    cursor: pointer;
     border-style: none;
+    background-color: #ffffff;
+    padding: 12px 4px;
+    border-radius: 10px;
+    display: flex;
+    gap: 8px;
+    font-size: 16px;
+    flex-direction: column;
+    /* width: 100%; */
+    align-items: center;
+    /* height: 60px; */
+    /* justify-content: center; */
+    cursor: pointer;
 }
 main > .edit > .sidebar > button:active{
     scale: 0.95;
@@ -104,8 +115,9 @@ main > .edit > .sidebar > .selected{
 .cv-form{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 100%;
+    flex-grow: 999;
+    gap: 28px;
+    /* width: 100%; */
 }
 .cv-form > .personal-info{
     background-color: #ffffff;
@@ -114,7 +126,7 @@ main > .edit > .sidebar > .selected{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: auto;
+    /* width: auto; */
 }
 .cv-form > .personal-info > form,
 .cv-form > div > .sectionOpen > .form{
@@ -127,11 +139,11 @@ main > .edit > .sidebar > .selected{
 .cv-form > div > .sectionOpen > .form > div{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 .cv-form > .personal-info > form > div > label,
 .cv-form > div > .sectionOpen > .form > div label{
-    font-size: 13px;
+    font-size: 16px;
     font-weight: bold;
     /* display: flex;
     gap: 10px; */
@@ -139,7 +151,7 @@ main > .edit > .sidebar > .selected{
 .cv-form > .personal-info > form > div > label > span,
 .cv-form > div > .sectionOpen > .form > div label > span{
     padding: 8px;
-    font-size: 8px;
+    font-size: 10px;
     color: #626262;
 }
 .cv-form > .personal-info > form > div > input,
@@ -148,7 +160,7 @@ main > .edit > .sidebar > .selected{
     background-color: #f2f2f2;
     border: 2px solid transparent;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 14px;
     outline: none;
     transition: border-color 200ms ease-in-out;
 }
@@ -263,4 +275,48 @@ main > .edit > .sidebar > .selected{
     background-color: #132043;
     color: #ffffff;
     cursor: pointer;
+}
+
+/** TEMPLATE **/
+.CvTemplate-container{
+    background-color: #ffffff;
+    width: 21cm;
+    height: 29.7cm;
+}
+.CvTemplate-container > .CvTemplate{
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+.CvTemplate.top{
+    grid-template-rows: auto 1fr;
+}
+.headerTemplate{
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: antiquewhite;
+}
+.CvTemplate > .headerTemplate > .name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 28px;
+}
+.CvTemplate > .headerTemplate > .name > h2{
+    font-size: 32px;
+    font-weight: bold;
+}
+.CvTemplate > .headerTemplate > .contact{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
 }
