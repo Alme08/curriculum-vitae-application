@@ -92,7 +92,6 @@ function Main() {
             setPrevState(null)
         } else if(e.target.dataset.set === 'experience') {
             const newExperiences = experiences.filter(experience => experience.id !== e.target.dataset.id)
-            console.log(newExperiences)
             setExperiences(newExperiences)
             setPrevState(null)
         }

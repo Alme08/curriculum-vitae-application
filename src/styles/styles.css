@@ -215,7 +215,8 @@ main > .edit > .sidebar > .selected{
     /* padding: 10px; */
     font-size: 20px;
 }
-.cv-form > div > .sectionOpen > .addEducation{
+.cv-form > div > .sectionOpen > .addEducation,
+.cv-form > div > .sectionOpen > .addExperience{
     width: auto;
     padding: 10px 8px;
     margin: 10px 0;
