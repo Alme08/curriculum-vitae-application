@@ -160,7 +160,8 @@ main > .edit > .sidebar > .selected{
 
 /** EDUCATION **/
 
-.cv-form > div > .educationSection{
+.cv-form > div > .educationSection,
+.cv-form > div > .experienceSection{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -173,14 +174,17 @@ main > .edit > .sidebar > .selected{
     border-style: none;
     cursor: pointer;
 }
-.cv-form > div > .educationSection.open{
+.cv-form > div > .educationSection.open,
+.cv-form > div > .experienceSection.open{
     border-radius: 10px 10px 0px 0px;
     width: 100%;
 }
-.cv-form > div > .educationSection > i{
+.cv-form > div > .educationSection > i,
+.cv-form > div > .experienceSection > i{
     transition: transform 250ms ease-in;
 }
-.cv-form > div > .educationSection > i.open{
+.cv-form > div > .educationSection > i.open,
+.cv-form > div > .experienceSection > i.open{
     transform: rotate(0.5turn);
 }
 .cv-form > div > .sectionOpen{
