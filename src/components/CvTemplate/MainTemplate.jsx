@@ -1,6 +1,7 @@
-function MainTemplate({educations}) {
+function MainTemplate({educations, experiences}) {
     return(
-        educations.map((education) => {
+        <>
+        {educations.map((education) => {
             if (education.hidden === false) {
                 return(
                     <div key={education.id}>
@@ -12,7 +13,22 @@ function MainTemplate({educations}) {
                     </div>
                 )
             }
-        })
+        })}
+        {experiences.map((experience) => {
+            if (experience.hidden === false) {
+                return(
+                    <div key={experience.id}>
+                        <p>{experience.company}</p>
+                        <p>{experience.position}</p>
+                        <p>{experience.from}</p>
+                        <p>{experience.to}</p>
+                        <p>{experience.city}</p>
+                        <p>{experience.description}</p>
+                    </div>
+                )
+            }
+        })}
+        </>
     )
 }
 
