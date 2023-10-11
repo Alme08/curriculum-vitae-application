@@ -16,7 +16,7 @@ function Main() {
         phone: '',
       });
     const [educations, setEducations] = useState([]);
-    // const [experiences, setExperiences] = useState([]);
+    const [experiences, setExperiences] = useState([]);
     const [prevState, setPrevState] = useState(null);
     
 
@@ -39,65 +39,137 @@ function Main() {
             }
             return education;
           })) : 
-        console.log('hey')
+          e.target.dataset.field === 'experience' ? setExperiences(experiences.map((experience) => {
+            if (experience.id === e.target.parentNode.parentNode.dataset.id) {
+              return {
+                ...experience,
+                [e.target.name]: e.target.value,
+              };
+            }
+            return experience;
+          })) : console.log('Error')
 
     }
-    const handleAddEducation = () =>{
-        setPrevState(educations)
-        setEducations([
-            ...educations,
-            {
-              university: '',
-              city: '',
-              degree: '',
-              from: '',
-              to: '',
-              hidden: false,
-              edit: true,
-              id: uniqid(),
-            },
-        ]);
+    const handleAdd = (e) =>{
+        if (e.target.dataset.set === 'education') {
+            setPrevState(educations)
+            setEducations([
+                ...educations,
+                {
+                  university: '',
+                  city: '',
+                  degree: '',
+                  from: '',
+                  to: '',
+                  hidden: false,
+                  edit: true,
+                  id: uniqid(),
+                },
+            ]);
+        } else if(e.target.dataset.set === 'experience') {
+            setPrevState(experiences)
+            setExperiences([
+                ...experiences,
+                {
+                  company: '',
+                  position: '',
+                  from: '',
+                  to: '',
+                  city: '',
+                  description: '',
+                  hidden: false,
+                  edit: true,
+                  id: uniqid(),
+                },
+            ]);
+        }
     };
 
-    const handleDeleteEducation = (e) => {
-        const newEducations = educations.filter(education => education.id !== e.target.dataset.id)
-        setEducations(newEducations)
-        setPrevState(null)
+    const handleDelete = (e) => {
+        if (e.target.dataset.set === 'education') {
+            const newEducations = educations.filter(education => education.id !== e.target.dataset.id)
+            setEducations(newEducations)
+            setPrevState(null)
+        } else if(e.target.dataset.set === 'experience') {
+            const newExperiences = experiences.filter(experience => experience.id !== e.target.dataset.id)
+            console.log(newExperiences)
+            setExperiences(newExperiences)
+            setPrevState(null)
+        }
     }
-    const handleCancelEducation = () => {
-        setEducations(prevState.map((education) =>{
-            if (education.edit === true) {
-                education.edit = false
-            }
-            return education
-        }))
-        setPrevState(null)
+    const handleCancel = (e) => {
+        if (e.target.dataset.set === 'education') {
+            setEducations(prevState.map((education) =>{
+                if (education.edit === true) {
+                    education.edit = false
+                }
+                return education
+            }))
+            setPrevState(null)
+        } else if(e.target.dataset.set === 'experience') {
+            setExperiences(prevState.map((experience) =>{
+                if (experience.edit === true) {
+                    experience.edit = false
+                }
+                return experience
+            }))
+            setPrevState(null)
+        }
     }
-    const handleSaveEducation = () => {
-        setEducations(educations.map((education) =>{
-            if (education.edit === true) {
-                education.edit = false
-            }
-            return education
-        }))
-        setPrevState(null)
+    const handleSave = (e) => {
+        if (e.target.dataset.set === 'education') {
+            setEducations(educations.map((education) =>{
+                if (education.edit === true) {
+                    education.edit = false
+                }
+                return education
+            }))
+            setPrevState(null)
+        } else if(e.target.dataset.set === 'experience') {
+            setExperiences(experiences.map((experience) =>{
+                if (experience.edit === true) {
+                    experience.edit = false
+                }
+                return experience
+            }))
+            setPrevState(null)
+        }
     }
-    const handleEditEducation = (e) => {
-        setPrevState(educations)
-        setEducations(educations.map((education) =>{
-            if (education.id === e.target.dataset.id) {
-                education.edit = true
-            }
-            return education
-        }))
+    const handleEdit = (e) => {
+        if (e.target.dataset.set === 'education') {
+            setPrevState(educations)
+            setEducations(educations.map((education) =>{
+                if (education.id === e.target.dataset.id) {
+                    education.edit = true
+                }
+                return education
+            }))
+        } else if(e.target.dataset.set === 'experience') {
+            setPrevState(experiences)
+            setExperiences(experiences.map((experience) =>{
+                if (experience.id === e.target.dataset.id) {
+                    experience.edit = true
+                }
+                return experience
+            }))
+        }
     }
-    const handleHiddenEducation = (e) => {
-        setEducations(educations.map((education) =>{
-            if (education.id === e.target.parentNode.dataset.id) {
-                education.hidden === true ? education.hidden = false : education.hidden = true
-            }
-            return education
-        }))
+    const handleHidden = (e) => {
+        if (e.target.parentNode.dataset.set === 'education') {
+            setEducations(educations.map((education) =>{
+                if (education.id === e.target.parentNode.dataset.id) {
+                    education.hidden === true ? education.hidden = false : education.hidden = true
+                }
+                return education
+            }))
+        } else if(e.target.parentNode.dataset.set === 'experience') {
+            setExperiences(experiences.map((experience) =>{
+                if (experience.id === e.target.parentNode.dataset.id) {
+                    experience.hidden === true ? experience.hidden = false : experience.hidden = true
+                }
+                return experience
+            }))
+        }
     }
     return(
         <main className="container">
@@ -108,14 +180,15 @@ function Main() {
                     <Content 
                         personalInfo={personalInfo} 
                         educations={educations} 
+                        experiences={experiences}
                         handleChange={handleChange} 
-                        handleAddEducation={handleAddEducation} 
-                        handleDeleteEducation={handleDeleteEducation} 
-                        handleCancelEducation={handleCancelEducation}
-                        handleSaveEducation={handleSaveEducation}
-                        handleEditEducation={handleEditEducation}
+                        handleAdd={handleAdd} 
+                        handleDelete={handleDelete} 
+                        handleCancel={handleCancel}
+                        handleSave={handleSave}
+                        handleEdit={handleEdit}
                         handleExpand={handleExpand}
-                        handleHiddenEducation={handleHiddenEducation} 
+                        handleHidden={handleHidden} 
                         expand={expand}/> : 
                     <Layout/>}
                 </div>
