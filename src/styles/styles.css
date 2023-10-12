@@ -133,6 +133,9 @@ main > .edit > .sidebar > .selected{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: auto;
+}
+.cv-form > div > .sectionOpen{
     width: 100%;
 }
 .cv-form > .personal-info > form > div,
@@ -189,7 +192,6 @@ main > .edit > .sidebar > .selected{
 .cv-form > div > .educationSection.open,
 .cv-form > div > .experienceSection.open{
     border-radius: 10px 10px 0px 0px;
-    width: 100%;
 }
 .cv-form > div > .educationSection > i,
 .cv-form > div > .experienceSection > i{
@@ -207,6 +209,7 @@ main > .edit > .sidebar > .selected{
     flex-direction: column;
     align-items: center;
     padding: 12px;
+    max-width: 521px;
 }
 .cv-form > div > .sectionOpen > button{
     width: 100%;
@@ -294,18 +297,32 @@ main > .edit > .sidebar > .selected{
 .CvTemplate.top{
     grid-template-rows: auto 1fr;
 }
+.CvTemplate.left {
+    grid-template-columns: 44% 56%;
+}
+.CvTemplate.right {
+    grid-template-columns: 56% 44%;
+}
+.CvTemplate.right > :first-child {
+    grid-column: 2 / 2;
+    grid-row: 1 / end;
+}
+.CvTemplate.right > :last-child {
+    grid-column: 1 / 1;
+    grid-row: 1 / end;
+}
 .headerTemplate{
     padding: 36px 24px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: antiquewhite;
+    background-color: rgb(158, 196, 238);
 }
 .CvTemplate > .headerTemplate > .name{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 28px;
+    font-size: 26px;
 }
 .CvTemplate > .headerTemplate > .name > h2{
     font-size: 32px;
@@ -320,3 +337,63 @@ main > .edit > .sidebar > .selected{
     gap: 20px;
     font-size: 15px;
 }
+.resume-section {
+    padding: 0 56px;
+    margin-top: 40px;
+}
+
+.header-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 4px 0;
+    /* background-color: var(--section-resume-bg);
+    color: var(--resume-accent); */
+  }
+
+  .education-info {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  
+  .education-info-group {
+    min-width: 150px;
+  }
+  
+  .education-info-schoolName {
+    font-family: var(--resume-bold);
+    font-weight: bold;
+  }
+  
+  .education-info-degree {
+    font-size: 15px;
+  }
+
+  .experience-info {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  
+  .experience-info-group {
+    min-width: 150px;
+  }
+  
+  .experience-info-companyName {
+    font-family: var(--resume-bold);
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+  
+  .experience-info-positionTitle {
+    font-size: 15.4px;
+  }
+  
+  .experience-info-description {
+    margin-top: 4px;
+    white-space: pre-wrap;
+  }
