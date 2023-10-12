@@ -12,6 +12,12 @@ body{
     min-height: 100vh;
     max-height: max-content;
     background-color: #f2f2f2;
+    --resume-accent: #0e374e;
+    --header-resume-color: white;
+    --section-resume-bg: rgba(14, 55, 78, 0.07);
+    --resume-font: "Montserrat", sans-serif;
+    --resume-bold: "Montserrat", sans-serif;
+
 }
 
 .container{
@@ -285,6 +291,8 @@ main > .edit > .sidebar > .selected{
     background-color: #ffffff;
     width: 21cm;
     height: 29.7cm;
+    box-shadow: rgba(50, 50, 93, 0.1) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.25) 0px 8px 16px -8px;
 }
 .CvTemplate-container > .CvTemplate{
     background-color: white;
@@ -293,6 +301,7 @@ main > .edit > .sidebar > .selected{
     display: grid;
     width: 100%;
     height: 100%;
+    
 }
 .CvTemplate.top{
     grid-template-rows: auto 1fr;
@@ -316,7 +325,8 @@ main > .edit > .sidebar > .selected{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background-color: rgb(158, 196, 238);
+    color: var(--header-resume-color);
+    background-color: var(--resume-accent);
 }
 .CvTemplate > .headerTemplate > .name{
     display: flex;
@@ -327,6 +337,11 @@ main > .edit > .sidebar > .selected{
 .CvTemplate > .headerTemplate > .name > h2{
     font-size: 32px;
     font-weight: bold;
+    font-family: var(--resume-font);
+}
+.CvTemplate > .headerTemplate > .name > p{
+    
+    font-family: var(--resume-font);
 }
 .CvTemplate > .headerTemplate > .contact{
     display: flex;
@@ -336,6 +351,9 @@ main > .edit > .sidebar > .selected{
     justify-content: center;
     gap: 20px;
     font-size: 15px;
+}
+.CvTemplate > .headerTemplate > .contact > div{
+    font-family: var(--resume-font);
 }
 .resume-section {
     padding: 0 56px;
@@ -350,8 +368,9 @@ main > .edit > .sidebar > .selected{
     text-align: center;
     border-radius: 2px;
     padding: 4px 0;
-    /* background-color: var(--section-resume-bg);
-    color: var(--resume-accent); */
+    background-color: var(--section-resume-bg);
+    color: var(--resume-accent);
+    font-family: var(--resume-font);
   }
 
   .education-info {
@@ -363,7 +382,9 @@ main > .edit > .sidebar > .selected{
   .education-info-group {
     min-width: 150px;
   }
-  
+  .education-info-group > p{
+    font-family: var(--resume-font);
+  }
   .education-info-schoolName {
     font-family: var(--resume-bold);
     font-weight: bold;
@@ -382,6 +403,10 @@ main > .edit > .sidebar > .selected{
   .experience-info-group {
     min-width: 150px;
   }
+
+  .experience-info-group > p{
+    font-family: var(--resume-font);
+  }
   
   .experience-info-companyName {
     font-family: var(--resume-bold);
@@ -396,4 +421,108 @@ main > .edit > .sidebar > .selected{
   .experience-info-description {
     margin-top: 4px;
     white-space: pre-wrap;
+  }
+
+  .customize {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  
+  .customize > div {
+    padding: 18px;
+    background-color: white;
+    border-radius: 12px;
+  }
+
+  .accent-color {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 17px;
+  }
+  
+  input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 999px;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: rgb(149, 157, 165) 0px 8px 24px;
+  }
+  
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 999px;
+    padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 999px;
+    padding: 0;
+  }
+
+  .visual {
+    width: 50px;
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 8px;
+  }
+  
+  .top-visual {
+    background: linear-gradient(180deg, var(--resume-accent) 50%, white 50%);
+  }
+  
+  .left-visual {
+    background: linear-gradient(90deg, var(--resume-accent) 50%, white 50%);
+  }
+  .right-visual {
+    background: linear-gradient(90deg, white 50%, var(--resume-accent) 50%);
+  }
+  
+  .col-buttons button {
+    padding: 8px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .font-select {
+    gap: 8px;
+    display: flex;
+  }
+  
+  .font-select .serif-btn {
+    font-family: serif;
+  }
+  
+  .font-select .monospace-btn {
+    font-family: monospace;
+  }
+  
+  .font-select button {
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 16px;
+    width: 60px;
+    height: 70px;
+    background-color: transparent;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .font-select .font-test {
+    font-size: 24px;
+  }
+  
+  .font-select button[data-selected="true"] {
+    background: #0e374e;
+    color: white;
   }
