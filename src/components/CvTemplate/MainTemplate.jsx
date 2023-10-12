@@ -5,7 +5,7 @@ function MainTemplate({educations, experiences}) {
     return(
         <div>
             <div className="education-info-section resume-section">
-                <h3 className="header-text">Education</h3>
+                {educations.length > 0 && <h3 className="header-text">Education</h3>}
                               
                     {educations.map((education) => {
                         if (education.hidden === false) {
@@ -27,7 +27,7 @@ function MainTemplate({educations, experiences}) {
             
 
             <div className="experience-info-section resume-section">
-                <h3 className="header-text">Professional Experience</h3>
+                {experiences.length > 0 && <h3 className="header-text">Professional Experience</h3>}
                 {experiences.map((experience) => {
                     if (experience.hidden === false) {
                         return(
