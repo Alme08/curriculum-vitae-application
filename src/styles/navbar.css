@@ -1,0 +1,38 @@
+.container{
+    margin: 0 auto;
+    max-width: 90rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.navbar-container{
+    background-color: #f2f2f2 ;
+    padding: 20px 0;
+}
+
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    color: #f2f2f2;
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+}
+
+.navbar li{
+    display: flex;
+    justify-content: center;
+}
+.navbar a{
+    border-radius: 10px;
+    background-color: #132043;
+    border-radius: 10px;
+    padding: 7px 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+.navbar a:active{
+    scale: 0.95
+}

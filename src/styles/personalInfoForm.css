@@ -1,0 +1,50 @@
+.cv-form > .personal-info{
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cv-form > .personal-info > form,
+.cv-form > div > .sectionOpen > .form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: auto;
+}
+.cv-form > div > .sectionOpen{
+    width: 100%;
+}
+.cv-form > .personal-info > form > div,
+.cv-form > div > .sectionOpen > .form > div{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.cv-form > .personal-info > form > div > label,
+.cv-form > div > .sectionOpen > .form > div label{
+    font-size: 16px;
+    font-weight: bold;
+}
+.cv-form > .personal-info > form > div > label > span,
+.cv-form > div > .sectionOpen > .form > div label > span{
+    padding: 8px;
+    font-size: 10px;
+    color: #626262;
+}
+.cv-form > .personal-info > form > div > input,
+.cv-form > div > .sectionOpen > .form > div input{
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 200ms ease-in-out;
+}
+.cv-form > .personal-info > form > div > input:focus,
+.cv-form > div > .sectionOpen > .form > div input:focus{
+    border-color: blue;
+    box-shadow: 0px 3px 15px rgba(59, 131, 246, 0.2);
+}

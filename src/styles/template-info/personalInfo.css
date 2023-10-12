@@ -1,0 +1,35 @@
+
+.headerTemplate{
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--header-resume-color);
+    background-color: var(--resume-accent);
+}
+.CvTemplate > .headerTemplate > .name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+}
+.CvTemplate > .headerTemplate > .name > h2{
+    font-size: 32px;
+    font-weight: bold;
+    font-family: var(--resume-font);
+}
+.CvTemplate > .headerTemplate > .name > p{
+    
+    font-family: var(--resume-font);
+}
+.CvTemplate > .headerTemplate > .contact{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
+}
+.CvTemplate > .headerTemplate > .contact > div{
+    font-family: var(--resume-font);
+}
