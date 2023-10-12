@@ -1,6 +1,22 @@
-function Layout(){
+import AccentColorEdit from "./Customize/AccentColorEdit";
+import FontEdit from "./Customize/FontEdit";
+import ResumeColsEdit from "./Customize/ResumeColsEdit";
+
+function Layout({onColChange}){
     return(
-        <h2>Layout</h2>
+        <div
+      className="customize"
+    >
+      <div>
+        <ResumeColsEdit onColChange={onColChange} />
+      </div>
+      <div>
+        <AccentColorEdit />
+      </div>
+      <div>
+        <FontEdit />
+      </div>
+    </div>
     )
 }
 
