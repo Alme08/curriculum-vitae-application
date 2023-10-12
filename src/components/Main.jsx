@@ -4,6 +4,8 @@ import Sidebar from "./Sidebar";
 import Content from "./Content";
 import Layout from "./Layout";
 import CvTemplate from "./Template";
+import exampleData from "./tools/exampleData";
+import TemplateLoader from "./TemplateLoader";
 
 function Main() {
     const [customize, setCustomize] = useState(false)
@@ -18,6 +20,7 @@ function Main() {
     const [educations, setEducations] = useState([]);
     const [experiences, setExperiences] = useState([]);
     const [prevState, setPrevState] = useState(null);
+    const [resumeLayout, setResumeLayout] = useState("top");
     
 
     const handleSidebar = (e) =>{
@@ -176,24 +179,45 @@ function Main() {
                 <Sidebar handleSidebar={handleSidebar} customize={customize}/>
                 <div className="cv-form">
                     {customize !== true ?
-                    <Content 
-                        personalInfo={personalInfo} 
-                        educations={educations} 
-                        experiences={experiences}
-                        handleChange={handleChange} 
-                        handleAdd={handleAdd} 
-                        handleDelete={handleDelete} 
-                        handleCancel={handleCancel}
-                        handleSave={handleSave}
-                        handleEdit={handleEdit}
-                        handleExpand={handleExpand}
-                        handleHidden={handleHidden} 
-                        expand={expand}/> : 
-                    <Layout/>}
+                    <>
+                        <TemplateLoader
+                            onTemplateLoad={() => {
+                                setPersonalInfo(exampleData.personalInfo);
+                                setEducations(exampleData.educations)
+                                setExperiences(exampleData.experiences);
+                            }}
+                            onClear={() => {
+                                setPersonalInfo({
+                                    fullName: '',
+                                    title: '',
+                                    email: '',
+                                    address: '',
+                                    phone:'',
+                                });
+                                setEducations([]);
+                                setExperiences([]);
+                                setPrevState(null);
+                            }}
+                        />
+                        <Content 
+                            personalInfo={personalInfo} 
+                            educations={educations} 
+                            experiences={experiences}
+                            handleChange={handleChange} 
+                            handleAdd={handleAdd} 
+                            handleDelete={handleDelete} 
+                            handleCancel={handleCancel}
+                            handleSave={handleSave}
+                            handleEdit={handleEdit}
+                            handleExpand={handleExpand}
+                            handleHidden={handleHidden} 
+                            expand={expand}/> 
+                    </>: 
+                    <Layout onColChange={setResumeLayout}/>}
                 </div>
             </section>
             <section className="CvTemplate-container">
-                <div className="CvTemplate top">
+                <div className={`CvTemplate ${resumeLayout}`}>
                     <CvTemplate personalInfo={personalInfo} educations={educations} experiences={experiences}/>
                 </div>
             </section>
