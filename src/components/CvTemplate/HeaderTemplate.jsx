@@ -1,3 +1,5 @@
+import '../../styles/template-info/personalInfo.css'
+
 function HeaderTemplate({personalInfo}){
     return(
         <header className="headerTemplate">

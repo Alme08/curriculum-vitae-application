@@ -1,3 +1,6 @@
+import '../../styles/template-info/educationInfo.css'
+import '../../styles/template-info/experienceInfo.css'
+
 function MainTemplate({educations, experiences}) {
     return(
         <div>

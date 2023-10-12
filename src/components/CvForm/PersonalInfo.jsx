@@ -1,4 +1,5 @@
 import Input from "../tools/Input";
+import '../../styles/personalInfoForm.css'
 
 function PersonalInfo({personalInfo, handleChange}) {
     

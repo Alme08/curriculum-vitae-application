@@ -1,6 +1,7 @@
 import AccentColorEdit from "./Customize/AccentColorEdit";
 import FontEdit from "./Customize/FontEdit";
 import ResumeColsEdit from "./Customize/ResumeColsEdit";
+import '../styles/layout.css'
 
 function Layout({onColChange}){
     return(

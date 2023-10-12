@@ -1,4 +1,4 @@
-// import "../styles/TemplateLoader.css";
+import "../styles/templateLoader.css";
 
 export default function TemplateLoader({ onTemplateLoad, onClear }) {
   return (

@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import CvTemplate from "./Template";
 import exampleData from "./tools/exampleData";
 import TemplateLoader from "./TemplateLoader";
+import '../styles/main.css'
 
 function Main() {
     const [customize, setCustomize] = useState(false)

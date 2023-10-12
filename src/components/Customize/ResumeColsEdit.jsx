@@ -1,4 +1,4 @@
-// import "../../styles/customize/ResumeColsEdit.css";
+import "../../styles/customize/ColsEdit.css";
 
 export default function ResumeColsEdit({ onColChange }) {
   return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import "../../styles/customize/FontEdit.css";
+import "../../styles/customize/fontEdit.css";
 
 export default function FontEdit() {
   const [font, setFont] = useState("sans");

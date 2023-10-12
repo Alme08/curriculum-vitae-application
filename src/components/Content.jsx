@@ -1,7 +1,7 @@
-// import { useState } from "react";
 import PersonalInfo from "./CvForm/PersonalInfo";
 import Education from "./CvForm/Education";
 import Experience from "./CvForm/Experience";
+import '../styles/sections.css'
 
 function Content(props){
     

@@ -1,3 +1,5 @@
+import '../styles/sidebar.css'
+
 function Sidebar({handleSidebar, customize}) {
     return(
         <div className="sidebar">

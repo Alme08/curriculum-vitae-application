@@ -1,5 +1,6 @@
 import HeaderTemplate from "./CvTemplate/HeaderTemplate"
 import MainTemplate from "./CvTemplate/MainTemplate"
+import '../styles/template.css'
 
 function CvTemplate({personalInfo, educations, experiences}) {
     return(
